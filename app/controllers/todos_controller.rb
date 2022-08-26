@@ -1,5 +1,5 @@
 class TodosController < ApplicationController
-  before_action :set_todo, only: %i[ show edit update destroy ]
+  before_action :set_todo, only: %i[show edit update destroy]
 
   def index
     @todos = Todo.all
@@ -17,7 +17,7 @@ class TodosController < ApplicationController
     @todo = Todo.new(todo_params)
 
     if @todo.save
-      redirect_to todo_url(@todo), notice: "Todo was successfully created."
+      redirect_to todo_url(@todo), notice: 'Todo was successfully created.'
     else
       render :new, status: :unprocessable_entity
     end
@@ -25,7 +25,7 @@ class TodosController < ApplicationController
 
   def update
     if @todo.update(todo_params)
-      redirect_to todo_url(@todo), notice: "Todo was successfully updated."
+      redirect_to todo_url(@todo), notice: 'Todo was successfully updated.'
     else
       render :edit, status: :unprocessable_entity
     end
@@ -33,7 +33,7 @@ class TodosController < ApplicationController
 
   def destroy
     @todo.destroy
-    redirect_to todos_url, notice: "Todo was successfully destroyed."
+    redirect_to todos_url, notice: 'Todo was successfully destroyed.'
   end
 
   private
@@ -41,7 +41,6 @@ class TodosController < ApplicationController
   def set_todo
     @todo = Todo.find(params[:id])
   end
-
 
   def todo_params
     params.require(:todo).permit(:name, :status, :user_id)

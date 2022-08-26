@@ -1,65 +1,65 @@
 require 'rails_helper'
 
-RSpec.describe "Users", type: :request do
+RSpec.describe 'Users', type: :request do
 
   let(:valid_attributes) {
     {
-      name: 'user test',
-      email: "a@a.com"
+      name:  'user test',
+      email: 'a@a.com'
     }
   }
 
   let(:invalid_attributes) {
-    skip("Add a hash of attributes invalid for your model")
+    skip('Add a hash of attributes invalid for your model')
   }
 
-  describe "GET /index" do
-    it "renders a successful response" do
+  describe 'GET /index' do
+    it 'renders a successful response' do
       User.create! valid_attributes
       get users_url
       expect(response).to be_successful
     end
   end
 
-  describe "GET /show" do
-    it "renders a successful response" do
+  describe 'GET /show' do
+    it 'renders a successful response' do
       user = User.create! valid_attributes
       get user_url(user)
       expect(response).to be_successful
     end
   end
 
-  describe "GET /new" do
-    it "renders a successful response" do
+  describe 'GET /new' do
+    it 'renders a successful response' do
       get new_user_url
       expect(response).to be_successful
     end
   end
 
-  describe "GET /edit" do
-    it "renders a successful response" do
+  describe 'GET /edit' do
+    it 'renders a successful response' do
       user = User.create! valid_attributes
       get edit_user_url(user)
       expect(response).to be_successful
     end
   end
 
-  describe "POST /create" do
-    context "with valid parameters" do
-      it "creates a new user" do
+  describe 'POST /create' do
+    context 'with valid parameters' do
+      it 'creates a new user' do
         expect {
           post users_url, params: { user: valid_attributes }
         }.to change(User, :count).by(1)
       end
 
-      it "redirects to the created user" do
+      it 'redirects to the created user' do
         post users_url, params: { user: valid_attributes }
         expect(response).to redirect_to(user_url(User.last))
       end
     end
 
-    context "with invalid parameters" do
-      it "does not create a new user" do
+    context 'with invalid parameters' do
+      it 'does not create a new user' do
         expect {
           post users_url, params: { user: invalid_attributes }
         }.to change(User, :count).by(0)
@@ -72,20 +72,20 @@ RSpec.describe "Users", type: :request do
     end
   end
 
-  describe "PATCH /update" do
-    context "with valid parameters" do
+  describe 'PATCH /update' do
+    context 'with valid parameters' do
       let(:new_attributes) {
-        skip("Add a hash of attributes valid for your model")
+        skip('Add a hash of attributes valid for your model')
       }
 
-      it "updates the requested user" do
+      it 'updates the requested user' do
         user = User.create! valid_attributes
         patch user_url(user), params: { user: new_attributes }
         User.reload
-        skip("Add assertions for updated state")
+        skip('Add assertions for updated state')
       end
 
-      it "redirects to the user" do
+      it 'redirects to the user' do
         user = User.create! valid_attributes
         patch user_url(user), params: { user: new_attributes }
         User.reload
@@ -93,7 +93,7 @@ RSpec.describe "Users", type: :request do
       end
     end
 
-    context "with invalid parameters" do
+    context 'with invalid parameters' do
       it "renders a successful response (i.e. to display the 'edit' template)" do
         user = User.create! valid_attributes
         patch user_url(user), params: { user: invalid_attributes }
@@ -102,15 +102,15 @@ RSpec.describe "Users", type: :request do
     end
   end
 
-  describe "DELETE /destroy" do
-    it "destroys the requested user" do
+  describe 'DELETE /destroy' do
+    it 'destroys the requested user' do
       user = User.create! valid_attributes
       expect {
         delete user_url(user)
       }.to change(User, :count).by(-1)
     end
 
-    it "redirects to the users list" do
+    it 'redirects to the users list' do
       user = User.create! valid_attributes
       delete user_url(user)
       expect(response).to redirect_to(users_url)
