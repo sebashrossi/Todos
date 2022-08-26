@@ -4,7 +4,7 @@ RSpec.describe TodosController, type: :controller do
   describe 'GET #index' do
     let(:user) { create(:user) }
     let(:todo) { create(:todo, user: user) }
-    let(:request) { get :index }
+    let(:request) { get :index, params: { user_id: user.id } }
 
     before do
       todo
@@ -26,7 +26,7 @@ RSpec.describe TodosController, type: :controller do
       }
    }
 
-    let(:request) { post :create, params: {todo: params} }
+    let(:request) { post :create, params: {user_id: user.id, todo: params} }
 
 
     it 'returns a successful response' do
@@ -47,7 +47,7 @@ RSpec.describe TodosController, type: :controller do
       }
     }
 
-    let(:request) { put :update, params: {id: todo.id, todo: params} }
+    let(:request) { put :update, params: {user_id: user.id, id: todo.id, todo: params} }
 
     it 'returns a successful response' do
       expect(response).to have_http_status(:success)
@@ -62,7 +62,7 @@ RSpec.describe TodosController, type: :controller do
   describe 'DELETE #destroy' do
     let(:user) { create(:user) }
     let(:todo) { create(:todo, user: user) }
-    let(:request) { delete :destroy, params: {id: todo.id } }
+    let(:request) { delete :destroy, params: {user_id: user.id, id: todo.id } }
 
     it 'returns a successful response' do
       expect(response).to have_http_status(:success)

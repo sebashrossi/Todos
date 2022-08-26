@@ -10,5 +10,16 @@
   <%= @user.email %>
 </p>
 
+<p>
+  <strong>Todos:</strong>
+  <% @user.todos.each do |todo| %>
+    <p><%= todo.name %></p>
+    <p><%= todo.status %></p>
+  <% end %>
+
+  <%= link_to 'Add Todo', new_user_todo_path(@user) %>
+
+</p>
+
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>

@@ -2,5 +2,5 @@
 
 <%= render 'form', todo: @todo %>
 
-<%= link_to 'Show', @todo %> |
-<%= link_to 'Back', todos_path %>
+<%= link_to 'Show', user_todo_path({user_id: @user.id, id: @todo.id}) %> |
+<%= link_to 'Back', user_path(@user) %>
