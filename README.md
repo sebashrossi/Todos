@@ -9,3 +9,6 @@ This project uses PostgreSQL as database.
 ## TEST
 This project uses Rspec as test framework.
 
+## LINTER
+This project uses Rubocop as linter.
+See config [here](./.rubocop.yml)

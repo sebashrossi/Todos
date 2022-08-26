@@ -1,0 +1,184 @@
+AllCops:
+  TargetRubyVersion: 2.6.6
+  NewCops: enable
+  Exclude:
+    - bin/**/*
+    - config/**/*
+    - db/**/*
+    - tmp/**/*
+    - node_modules/**/*
+    - lib/templates/**/*
+    - Gemfile
+    - Rakefile
+
+##### METRICS #####
+
+# Rails controllers and such
+Metrics/MethodLength:
+  Max: 20
+  CountAsOne: ['array', 'hash', 'heredoc']
+
+# Often needed for controller methods
+Metrics/AbcSize:
+  Max: 30
+
+# Gives false positives for Rspec.describe
+Metrics/BlockLength:
+  Exclude:
+    - '**/*.rake'
+    - 'spec/**/*'
+    - 'config/**/*'
+
+Metrics/ClassLength:
+  Max: 500
+  CountAsOne: ['array', 'hash', 'heredoc']
+
+###### LAYOUT #####
+#Layout/LineLength:
+#  Max: 120
+
+Layout/EmptyLineBetweenDefs:
+  Enabled: false
+
+# We like extra lines around our modules
+Layout/EmptyLinesAroundModuleBody:
+  Enabled: false
+
+# We like extra lines around our classes too
+Layout/EmptyLinesAroundClassBody:
+  Enabled: false
+
+Layout/EmptyLinesAroundAttributeAccessor:
+  Enabled: true
+
+Layout/SpaceAroundMethodCallOperator:
+  Enabled: false
+
+Layout/HashAlignment:
+  Enabled: true
+  EnforcedColonStyle: table
+  EnforcedHashRocketStyle: table
+
+Layout/FirstHashElementIndentation:
+  Enabled: false
+
+Layout/SpaceInsideParens:
+  Enabled: false
+
+Layout/ArgumentAlignment:
+  Enabled: true
+
+Layout/EmptyLinesAroundBlockBody:
+  Enabled: false
+
+Layout/EmptyLineAfterGuardClause:
+  Enabled: true
+
+##### LINT #####
+
+# False positive for if var = value
+Lint/AssignmentInCondition:
+  Enabled: false
+
+Lint/DeprecatedOpenSSLConstant:
+  Enabled: false
+
+Lint/MixedRegexpCaptureTypes:
+  Enabled: true
+
+Lint/RaiseException:
+  Enabled: true
+
+Lint/StructNewOverride:
+  Enabled: false
+
+Lint/EmptyBlock:
+  Enabled: false
+
+Lint/AmbiguousBlockAssociation:
+  Exclude:
+    - 'spec/**/*'
+
+##### STYLE #####
+
+# We don't use this
+Style/Documentation:
+  Enabled: false
+
+# Allow Nested module syntax
+Style/ClassAndModuleChildren:
+  Enabled: false
+
+Style/ExponentialNotation:
+  Enabled: false
+
+Style/HashEachMethods:
+  Enabled: false
+
+Style/HashTransformKeys:
+  Enabled: false
+
+Style/HashTransformValues:
+  Enabled: false
+
+Style/RedundantRegexpCharacterClass:
+  Enabled: false
+
+Style/RedundantRegexpEscape:
+  Enabled: false
+
+Style/SlicingWithRange:
+  Enabled: false
+
+Style/HashSyntax:
+  Enabled: true
+  EnforcedStyle: 'ruby19'
+
+Style/StringLiterals:
+  Enabled: true
+
+# False positives for interpolated variables in translations
+Style/FormatStringToken:
+  Enabled: false
+
+Style/FormatString:
+  Enabled: false
+
+# We like lambda shorthand
+Style/Lambda:
+  Enabled: false
+
+# Helps format long expect statments
+Style/BlockDelimiters:
+  Exclude:
+    - 'spec/**/*'
+
+Style/TrailingCommaInHashLiteral:
+  EnforcedStyleForMultiline: no_comma
+
+Style/TrailingCommaInArrayLiteral:
+  EnforcedStyleForMultiline: no_comma
+
+Style/SymbolArray:
+  Enabled: false
+
+Style/SafeNavigation:
+  Enabled: false
+
+Style/IfUnlessModifier:
+  Enabled: false
+
+Layout/BlockEndNewline:
+  Enabled: true
+
+Style/TrivialAccessors:
+  Enabled: true
+
+Style/SymbolLiteral:
+  Enabled: true
+
+Style/BlockComments:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
