@@ -12,10 +12,11 @@
 
 <p>
   <strong>Todos:</strong>
-  <% @user.todos.each do |todo| %>
-    <p><%= todo.name %></p>
-    <p><%= todo.status %></p>
-  <% end %>
+  <ul>
+    <% @user.todos.each do |todo| %>
+      <li><%= link_to todo.name, user_todo_path(@user,todo) %> - <%= todo.status %></li>
+    <% end %>
+  </ul>
 
   <%= link_to 'Add Todo', new_user_todo_path(@user) %>
 
