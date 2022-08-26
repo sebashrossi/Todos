@@ -27,7 +27,11 @@ RSpec.describe '/todos', type: :request do
   }
 
   let(:invalid_attributes) {
-    skip('Add a hash of attributes invalid for your model')
+    {
+      name: '',
+      status: '',
+      user_id: user.id
+    }
   }
 
   describe 'GET /index' do
