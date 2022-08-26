@@ -88,7 +88,7 @@ RSpec.describe '/todos', type: :request do
 
       it "renders a successful response (i.e. to display the 'new' template)" do
         post todos_url, params: { todo: invalid_attributes }
-        expect(response).to be_successful
+        expect(response.status).to eq(422)
       end
     end
   end
@@ -96,14 +96,15 @@ RSpec.describe '/todos', type: :request do
   describe 'PATCH /update' do
     context 'with valid parameters' do
       let(:new_attributes) {
-        skip('Add a hash of attributes valid for your model')
+        {
+          status: 'doing'
+        }
       }
 
       it 'updates the requested todo' do
         todo = Todo.create! valid_attributes
         patch todo_url(todo), params: { todo: new_attributes }
-        todo.reload
-        skip('Add assertions for updated state')
+        expect(todo.reload.status).to eq 'doing'
       end
 
       it 'redirects to the todo' do
@@ -118,7 +119,7 @@ RSpec.describe '/todos', type: :request do
       it "renders a successful response (i.e. to display the 'edit' template)" do
         todo = Todo.create! valid_attributes
         patch todo_url(todo), params: { todo: invalid_attributes }
-        expect(response).to be_successful
+        expect(response.status).to eq(422)
       end
     end
   end
