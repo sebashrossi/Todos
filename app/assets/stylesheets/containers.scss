@@ -11,6 +11,10 @@
   box-shadow: $card-shadow;
   padding: 24px;
 
+  .title {
+    font-weight: 500;
+  }
+
   .table-container {
     height: 80%;
     max-height: 80%;
@@ -19,23 +23,36 @@
     form {
       padding: 16px;
 
-      input:not([type="submit"]) {
+      input:not([type="submit"]), select {
         width: 100%;
         border: 0;
         border-bottom-width: 1px;
         border-bottom-style: inset;
         padding: 8px 0;
         color: $dark-text;
+        font-family: 'Montserrat';
+
 
         &:focus-visible {
           outline: none;
         }
+      }
+
+      abbr {
+        text-decoration: none;
       }
     }
 
     table {
       width: 100%;
       text-align: center;
+      border-collapse: collapse;
+
+      tr.user-tr {
+        &:hover {
+          border-bottom: 1px solid $accent;
+        }
+      }
     }
 
     a, button {
@@ -62,8 +79,12 @@
       height: 90%;
       max-height: 90%;
 
-      .todos-list {
+      table {
         margin-bottom: 24px;
+      }
+
+      .action-btn {
+        margin-top: 24px;
       }
     }
   }
