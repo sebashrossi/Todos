@@ -5,7 +5,8 @@
   left: 50%;
   transform: translate(-50%, -50%);
   height: 55%;
-  width: 16%;
+  min-height: 60%;
+  min-width: 20%;
   background-color: $card-back;
   border-radius:8px;
   box-shadow: $card-shadow;
@@ -110,5 +111,11 @@
         background-color: $accent;
       }
     }
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .note-section {
+    width: 80%;
   }
 }
