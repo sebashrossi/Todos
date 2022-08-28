@@ -34,22 +34,6 @@ RSpec.describe '/todos', type: :request do
     }
   }
 
-  describe 'GET /index' do
-    it 'renders a successful response' do
-      Todo.create! valid_attributes
-      get user_todos_url(user_id: user.id)
-      expect(response).to be_successful
-    end
-  end
-
-  describe 'GET /show' do
-    it 'renders a successful response' do
-      todo = Todo.create! valid_attributes
-      get user_todo_url(user_id: user.id, id: todo.id)
-      expect(response).to be_successful
-    end
-  end
-
   describe 'GET /new' do
     it 'renders a successful response' do
       get new_user_todo_url(user_id: user.id)

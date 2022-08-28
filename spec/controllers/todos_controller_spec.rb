@@ -1,20 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe TodosController, type: :controller do
-  describe 'GET #index' do
-    let(:user) { create(:user) }
-    let(:todo) { create(:todo, user: user) }
-    let(:request) { get :index, params: { user_id: user.id } }
-
-    before do
-      todo
-      request
-    end
-
-    it 'returns a successful response' do
-      expect(response).to have_http_status(200)
-    end
-  end
 
   describe 'POST #create' do
     let(:user) { create(:user) }

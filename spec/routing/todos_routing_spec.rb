@@ -2,16 +2,8 @@ require 'rails_helper'
 
 RSpec.describe TodosController, type: :routing do
   describe 'routing' do
-    it 'routes to #index' do
-      expect(get: '/users/1/todos').to route_to('todos#index', user_id: '1')
-    end
-
     it 'routes to #new' do
       expect(get: '/users/1/todos/new').to route_to('todos#new', user_id: '1')
-    end
-
-    it 'routes to #show' do
-      expect(get: '/users/1/todos/1').to route_to('todos#show', id: '1', user_id: '1')
     end
 
     it 'routes to #edit' do
