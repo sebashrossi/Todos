@@ -45,8 +45,11 @@
 
     table {
       width: 100%;
-      text-align: center;
       border-collapse: collapse;
+
+      th {
+        text-align: initial;
+      }
 
       tr.user-tr {
         &:hover {
@@ -55,7 +58,8 @@
       }
     }
 
-    a, button {
+    a {
+      color: $dark-text;
       text-decoration: none;
 
       &:hover {
