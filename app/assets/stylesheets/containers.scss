@@ -1,0 +1,89 @@
+.note-section {
+  position: absolute;
+  align-items: center;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 55%;
+  width: 16%;
+  background-color: $card-back;
+  border-radius:8px;
+  box-shadow: $card-shadow;
+  padding: 24px;
+
+  .table-container {
+    height: 80%;
+    max-height: 80%;
+    overflow: scroll;
+
+    form {
+      padding: 16px;
+
+      input:not([type="submit"]) {
+        width: 100%;
+        border: 0;
+        border-bottom-width: 1px;
+        border-bottom-style: inset;
+        padding: 8px 0;
+        color: $dark-text;
+
+        &:focus-visible {
+          outline: none;
+        }
+      }
+    }
+
+    table {
+      width: 100%;
+      text-align: center;
+    }
+
+    a, button {
+      text-decoration: none;
+
+      &:hover {
+        color: $accent;
+      }
+
+      &:visited {
+        color: $dark-text;
+      }
+
+      i {
+        color: $dark-text;
+        margin-right: 8px;
+        &:hover {
+          color: $accent;
+        }
+      }
+    }
+
+    .user-content {
+      height: 90%;
+      max-height: 90%;
+
+      .todos-list {
+        margin-bottom: 24px;
+      }
+    }
+  }
+
+  .action-btn {
+    text-align: center;
+
+    a, input[type="submit"] {
+      text-decoration: none;
+      padding: 8px 16px;
+      border-radius: 4px;
+      background-color: transparent;
+      border: 2px solid $accent;
+      color: $dark-text;
+      cursor: pointer;
+      font-family: 'Montserrat';
+
+      &:hover {
+        background-color: $accent;
+      }
+    }
+  }
+}
